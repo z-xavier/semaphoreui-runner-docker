@@ -1,6 +1,6 @@
 FROM docker:29-cli AS docker-cli
 
-FROM semaphoreui/runner:v2.18.25
+FROM semaphoreui/runner:v2.18.24
 
 USER root
 
