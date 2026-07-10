@@ -5,8 +5,9 @@ FROM alpine:3.21 AS semaphore-release
 ARG SEMAPHORE_VERSION
 ARG TARGETARCH
 
+RUN apk add --no-cache curl tar
+
 RUN set -eux; \
-    apk add --no-cache curl tar; \
     package="semaphore_${SEMAPHORE_VERSION}_linux_${TARGETARCH}.tar.gz"; \
     release_url="https://github.com/semaphoreui/semaphore/releases/download/v${SEMAPHORE_VERSION}"; \
     curl -fsSLo "/tmp/${package}" "${release_url}/${package}"; \
