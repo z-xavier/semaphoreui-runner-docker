@@ -2,10 +2,10 @@ ARG SEMAPHORE_VERSION=2.18.25
 
 FROM alpine:3.21 AS semaphore-release
 
+RUN apk add --no-cache curl tar
+
 ARG SEMAPHORE_VERSION
 ARG TARGETARCH
-
-RUN apk add --no-cache curl tar
 
 RUN set -eux; \
     package="semaphore_${SEMAPHORE_VERSION}_linux_${TARGETARCH}.tar.gz"; \
